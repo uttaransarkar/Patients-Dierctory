@@ -2,7 +2,7 @@
 <hr>
 <h3>A very handy dynamic web application made for doctors who can use it to:</h3>
 <ul>
-  <li>add their patients seeking appointment along with all their details</li>
+  <li>add their patients, seeking appointment along with all their details</li>
   <li>create/update prescriptions</li>
   <li>update patient details as and when required</li>
   <li>update their appointment status</li> 

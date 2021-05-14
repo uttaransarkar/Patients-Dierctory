@@ -8,4 +8,4 @@
   <li>update their appointment status</li> 
  </ul>
  <br>
- All this is being done on the fly with the help of JSP and Servlets. The codebase is almost entirely in Java along with basic HTML and CSS. More features will be added soon to provide more functionality, as well improve UI and UX.
+ All this is being done on the fly with the help of JSP and Servlets, implementing MVC architecture. The codebase is almost entirely in Java along with basic HTML and CSS. More features will be added soon to provide more functionality, as well improve UI and UX.

@@ -31,7 +31,7 @@ public class PatientDbModel {
 			conn = dataSource.getConnection();
 			
 			//sql query and create statement
-			String sql = "select * from patient order by last_name";
+			String sql = "select * from patient order by status desc, time";
 			stm = conn.createStatement();
 			
 			//execute the statement
@@ -40,6 +40,7 @@ public class PatientDbModel {
 			//process the result set
 			while(res.next()) {
 				int id = res.getInt("id");
+				String time = res.getString("time");
 				String firstName = res.getString("first_name");
 				String lastName = res.getString("last_name");
 				int age = res.getInt("age");
@@ -47,7 +48,7 @@ public class PatientDbModel {
 				String pres = res.getString("prescription");
 				String status = res.getString("status");
 				
-				Patient st = new Patient(id, firstName, lastName, age, gender, pres, status);
+				Patient st = new Patient(id, time, firstName, lastName, age, gender, pres, status);
 				listPatients.add(st);
 			}
 		
@@ -85,18 +86,19 @@ public class PatientDbModel {
 			conn = dataSource.getConnection();
 			
 			//sql insert query and prepare statement
-			String sql = "insert into patient (first_name, last_name, age, gender, prescription, status) "
-					+ "values (?, ?, ?, ?, ?, ?)";
+			String sql = "insert into patient (time, first_name, last_name, age, gender, prescription, status) "
+					+ "values (?, ?, ?, ?, ?, ?, ?)";
 			
 			prepstm = conn.prepareStatement(sql);
 			
 			//setting the params
-			prepstm.setString(1, ob.getFirstName());
-			prepstm.setString(2, ob.getLastName());
-			prepstm.setInt(3, ob.getAge());
-			prepstm.setString(4, ob.getGender());
-			prepstm.setString(5, ob.getPres());
-			prepstm.setString(6, ob.getStatus());
+			prepstm.setString(1, ob.getTime());
+			prepstm.setString(2, ob.getFirstName());
+			prepstm.setString(3, ob.getLastName());
+			prepstm.setInt(4, ob.getAge());
+			prepstm.setString(5, ob.getGender());
+			prepstm.setString(6, ob.getPres());
+			prepstm.setString(7, ob.getStatus());
 			
 			//execute the statement
 			prepstm.execute();
@@ -132,6 +134,7 @@ public class PatientDbModel {
 			
 			//process the result set
 			if(res.next()) {
+				String time = res.getString("time");
 				String firstName = res.getString("first_name");
 				String lastName = res.getString("last_name");
 				int age = res.getInt("age");
@@ -139,7 +142,7 @@ public class PatientDbModel {
 				String pres = res.getString("prescription");
 				String status = res.getString("status");
 				
-				loaded = new Patient(patientId, firstName, lastName, age, gender, pres, status);
+				loaded = new Patient(patientId, time, firstName, lastName, age, gender, pres, status);
 			}
 		} finally {
 			//cleaning jdbc obj

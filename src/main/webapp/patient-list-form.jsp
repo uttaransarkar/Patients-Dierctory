@@ -29,6 +29,7 @@
 			
 			<table>
 				<tr>
+					<th>Time</th>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Age</th>
@@ -46,6 +47,7 @@
 				</c:url>
 				
 				<tr>
+					<td>${thisPatient.time}</td>
 					<td>${thisPatient.firstName}</td>
 					<td>${thisPatient.lastName}</td>
 					<td>${thisPatient.age}</td>

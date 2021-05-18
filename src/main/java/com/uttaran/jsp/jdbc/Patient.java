@@ -9,10 +9,12 @@ public class Patient {
 	private String gender;
 	private String pres;
 	private String status;
+	private String time;
 	
-	public Patient(int id, String firstName, String lastName, int age, String gender, String pres, String status) {
+	public Patient(int id, String time, String firstName, String lastName, int age, String gender, String pres, String status) {
 		super();
 		this.id = id;
+		this.time = time;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
@@ -21,8 +23,9 @@ public class Patient {
 		this.status = status;
 	}
 
-	public Patient(String firstName, String lastName, int age, String gender, String pres, String status) {
+	public Patient(String time, String firstName, String lastName, int age, String gender, String pres, String status) {
 		super();
+		this.time = time;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
@@ -37,6 +40,14 @@ public class Patient {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	public String getFirstName() {

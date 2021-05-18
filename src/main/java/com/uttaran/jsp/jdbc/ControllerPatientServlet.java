@@ -1,6 +1,9 @@
 package com.uttaran.jsp.jdbc;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -77,6 +80,9 @@ public class ControllerPatientServlet extends HttpServlet {
 
 	private void updatePatients(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//updating the patient info
+		Date date = new Date();
+		String timeFormat = "HH:mm:ss";
+		String time = new SimpleDateFormat(timeFormat).format(date);
 		
 		//read the updated form fields
 		int patientId = Integer.parseInt(request.getParameter("patientId"));
@@ -88,7 +94,7 @@ public class ControllerPatientServlet extends HttpServlet {
 		String status = request.getParameter("status");
 		
 		//create a Student object and pass it to pass it to model helper class
-		Patient pt = new Patient(patientId, firstName, lastName, age, gender, pres, status);
+		Patient pt = new Patient(patientId, time, firstName, lastName, age, gender, pres, status);
 		patientDbModel.updatePatient(pt);
 		
 		//redirecting to updated list
@@ -153,6 +159,11 @@ public class ControllerPatientServlet extends HttpServlet {
 
 	private void addPatient(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		//getting the time when patient is added to the list
+		Date date = new Date();
+		String timeFormat = "HH:mm:ss";
+		String time = new SimpleDateFormat(timeFormat).format(date);
+		
 		//read the form fields
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
@@ -161,8 +172,9 @@ public class ControllerPatientServlet extends HttpServlet {
 		String pres = "";
 		String status = "Pending";
 		
+		
 		//create new Patient obj
-		Patient ob = new Patient(firstName, lastName, age, gender, pres, status);
+		Patient ob = new Patient(time, firstName, lastName, age, gender, pres, status);
 	
 		//add it to DB
 		patientDbModel.addPatient(ob);

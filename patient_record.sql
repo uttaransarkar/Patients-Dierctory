@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `patient`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `patient` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` time default null,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
   `age` int(3) DEFAULT 0,
@@ -38,7 +39,7 @@ CREATE TABLE `patient` (
 
 LOCK TABLES `patient` WRITE;
 /*!40000 ALTER TABLE `patient` DISABLE KEYS */;
-INSERT INTO `patient` VALUES (1,'Mary','Public',32,'Female','','Pending'),(2,'John','Doe',20,'Male','','Pending'),(3,'Ajay','Rao',65,'Male','','Pending'),(4,'Bill','Neely',45,'Male','','Pending'),(5,'Maxie','Dixon',18,'Female','','Pending');
+INSERT INTO `patient` VALUES (1,'15:45:00','Mary','Public',32,'Female','','Pending'),(2,'12:30:20','John','Doe',20,'Male','','Pending'),(3,'10:15:35','Ajay','Rao',65,'Male','','Pending'),(4,'08:30:00','Bill','Neely',45,'Male','','Pending'),(5,'10:00:00','Maxie','Dixon',18,'Female','','Pending');
 /*!40000 ALTER TABLE `patient` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -9,5 +9,5 @@
  </ul>
  <br>
  All this is being done on the fly with the help of JSP and Servlets, implementing MVC architecture. The codebase is almost entirely in Java along with basic HTML and CSS. More features will be added soon to provide more functionality, as well improve UI and UX.
-<br>
-<b>Tech Stack used: </b>Java(JSP, Servlets), MySQL, HTML, CSS
+<br><br>
+<h3>Tech Stack used: Java(JSP, Servlets), MySQL, HTML, CSS</h3>
